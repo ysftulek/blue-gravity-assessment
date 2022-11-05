@@ -13,6 +13,7 @@ public class ShopKeeper : MonoBehaviour, IInteractable
 	public void DisableInteraction(Interactor interactor)
 	{
 		_hintPanel.SetActive(false);
+		_shopPanel.SetActive(false);
 	}
 	
 	public void Interact()
