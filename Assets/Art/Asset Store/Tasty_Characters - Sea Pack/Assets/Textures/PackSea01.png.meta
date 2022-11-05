@@ -276,7 +276,7 @@ TextureImporter:
       213: 21300180
     second: PackSea01_90
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -336,7 +336,6 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 1
-  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -525,7 +524,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PackSea01_7
+      name: Hat1
       rect:
         serializedVersion: 2
         x: 534
@@ -546,7 +545,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PackSea01_8
+      name: Hat2
       rect:
         serializedVersion: 2
         x: 693
@@ -567,7 +566,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PackSea01_9
+      name: Hat3
       rect:
         serializedVersion: 2
         x: 795
@@ -588,10 +587,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PackSea01_10
+      name: Hat4
       rect:
         serializedVersion: 2
-        x: 905
+        x: 906
         y: 798
         width: 81
         height: 45
@@ -672,7 +671,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PackSea01_14
+      name: Hat0
       rect:
         serializedVersion: 2
         x: 413
@@ -987,7 +986,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PackSea01_29
+      name: Body3
       rect:
         serializedVersion: 2
         x: 689
@@ -1008,7 +1007,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PackSea01_30
+      name: Body4
       rect:
         serializedVersion: 2
         x: 806
@@ -1050,7 +1049,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PackSea01_32
+      name: Body0
       rect:
         serializedVersion: 2
         x: 68
@@ -1113,7 +1112,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PackSea01_35
+      name: Body1
       rect:
         serializedVersion: 2
         x: 419
@@ -1134,7 +1133,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PackSea01_36
+      name: Body2
       rect:
         serializedVersion: 2
         x: 551
@@ -1176,7 +1175,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PackSea01_38
+      name: Body5
       rect:
         serializedVersion: 2
         x: 914
@@ -1701,7 +1700,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PackSea01_63
+      name: Hat6
       rect:
         serializedVersion: 2
         x: 535
@@ -1722,7 +1721,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PackSea01_64
+      name: Hat7
       rect:
         serializedVersion: 2
         x: 874
@@ -1785,7 +1784,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PackSea01_67
+      name: Hat5
       rect:
         serializedVersion: 2
         x: 190
@@ -1911,7 +1910,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PackSea01_73
+      name: Body10
       rect:
         serializedVersion: 2
         x: 681
@@ -1932,7 +1931,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PackSea01_74
+      name: Body11
       rect:
         serializedVersion: 2
         x: 773
@@ -1974,7 +1973,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PackSea01_76
+      name: Body8
       rect:
         serializedVersion: 2
         x: 277
@@ -2058,7 +2057,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PackSea01_80
+      name: Body6
       rect:
         serializedVersion: 2
         x: 46
@@ -2100,7 +2099,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PackSea01_82
+      name: Body7
       rect:
         serializedVersion: 2
         x: 173
@@ -2121,7 +2120,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PackSea01_83
+      name: Body9
       rect:
         serializedVersion: 2
         x: 520
@@ -2299,8 +2298,6 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      PackSea01_10: 21300020
-      PackSea01_64: 21300128
       PackSea01_66: 21300132
       PackSea01_68: 21300136
       PackSea01_26: 21300052
@@ -2310,69 +2307,72 @@ TextureImporter:
       PackSea01_11: 21300022
       PackSea01_62: 21300124
       PackSea01_2: 21300004
-      PackSea01_30: 21300060
-      PackSea01_28: 21300056
       PackSea01_77: 21300154
+      PackSea01_28: 21300056
+      Body5: 21300076
+      Body11: 21300148
       PackSea01_57: 21300114
       PackSea01_78: 21300156
       PackSea01_50: 21300100
       PackSea01_12: 21300024
       PackSea01_3: 21300006
+      Hat7: 21300128
       PackSea01_39: 21300078
       PackSea01_70: 21300140
       PackSea01_41: 21300082
       Shadow: 21300106
       PackSea01_88: 21300176
-      PackSea01_63: 21300126
+      Hat4: 21300020
+      Body3: 21300058
+      Body9: 21300166
+      Hat6: 21300126
+      Body1: 21300070
       PackSea01_17: 21300034
-      PackSea01_82: 21300164
-      PackSea01_36: 21300072
       PackSea01_48: 21300096
+      Body6: 21300160
+      Hat3: 21300018
+      Hat0: 21300028
       PackSea01_25: 21300050
       PackSea01_52: 21300104
       PackSea01_49: 21300098
+      Body4: 21300060
       PackSea01_18: 21300036
       PackSea01_21: 21300042
       PackSea01_43: 21300086
       PackSea01_60: 21300120
-      PackSea01_29: 21300058
       PackSea01_1: 21300002
       PackSea01_90: 21300180
       PackSea01_61: 21300122
+      Body7: 21300164
       PackSea01_46: 21300092
       PackSea01_89: 21300178
       PackSea01_58: 21300116
-      PackSea01_83: 21300166
       PackSea01_24: 21300048
       PackSea01_6: 21300012
+      Hat5: 21300134
       PackSea01_54: 21300108
       PackSea01_5: 21300010
       PackSea01_86: 21300172
+      Body8: 21300152
       PackSea01_33: 21300066
       PackSea01_65: 21300130
       PackSea01_19: 21300038
-      PackSea01_35: 21300070
-      PackSea01_7: 21300014
+      Hat2: 21300016
       PackSea01_23: 21300046
-      PackSea01_51: 21300102
-      PackSea01_32: 21300064
-      PackSea01_73: 21300146
-      PackSea01_0: 21300000
-      PackSea01_74: 21300148
-      PackSea01_9: 21300018
-      PackSea01_4: 21300008
       PackSea01_47: 21300094
-      PackSea01_38: 21300076
+      Body0: 21300064
+      PackSea01_51: 21300102
+      Hat1: 21300014
+      PackSea01_0: 21300000
+      PackSea01_4: 21300008
       PackSea01_71: 21300142
       PackSea01_84: 21300168
+      Body10: 21300146
       PackSea01_20: 21300040
-      PackSea01_67: 21300134
       PackSea01_79: 21300158
-      PackSea01_14: 21300028
       PackSea01_13: 21300026
       PackSea01_34: 21300068
       PackSea01_87: 21300174
-      PackSea01_80: 21300160
       PackSea01_16: 21300032
       PackSea01_69: 21300138
       PackSea01_75: 21300150
@@ -2383,11 +2383,10 @@ TextureImporter:
       PackSea01_27: 21300054
       PackSea01_56: 21300112
       PackSea01_55: 21300110
-      PackSea01_76: 21300152
       PackSea01_15: 21300030
       PackSea01_44: 21300088
       PackSea01_37: 21300074
-      PackSea01_8: 21300016
+      Body2: 21300072
       PackSea01_81: 21300162
       PackSea01_31: 21300062
   spritePackingTag: 
