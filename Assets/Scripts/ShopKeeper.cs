@@ -5,12 +5,12 @@ public class ShopKeeper : MonoBehaviour, IInteractable
 	[SerializeField] HintPanel _hintPanel;
 	[SerializeField] GameObject _shopPanel;
 	
-	public void EnableInteraction(Interactor interactor)
+	public void EnableInteraction()
 	{
 		_hintPanel.Show();
 	}
 	
-	public void DisableInteraction(Interactor interactor)
+	public void DisableInteraction()
 	{
 		_hintPanel.Hide();
 		_shopPanel.SetActive(false);

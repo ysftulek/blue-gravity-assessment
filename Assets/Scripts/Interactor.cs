@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Interactor : MonoBehaviour
 {
+	[SerializeField] KeyCode _interactionKey;
+	
 	IInteractable _interactable;
 	bool _canInteract;
 	
@@ -10,20 +12,34 @@ public class Interactor : MonoBehaviour
 	{
 		if (_canInteract)
 		{
-			if (Input.GetButtonDown("Fire1"))
+			if (Input.GetKeyDown(_interactionKey))
 			{
 				_interactable.Interact();
 			}
 		}
 	}
 
-	public void EnableInteraction(IInteractable interactable)
+	void OnTriggerEnter2D(Collider2D col)
 	{
-		_interactable = interactable;
-		_canInteract = true;
+		if (col.TryGetComponent(out IInteractable interactable))
+		{
+			_interactable = interactable;
+			_canInteract = true;
+			interactable.EnableInteraction();
+		}
 	}
 	
-	public void DisableInteraction()
+	void OnTriggerExit2D(Collider2D col)
+	{
+		if (col.TryGetComponent(out IInteractable interactable))
+		{
+			_interactable = null;
+			_canInteract = false;
+			interactable.DisableInteraction();
+		}
+	}
+	
+	void DisableInteraction()
 	{
 		_interactable = null;
 		_canInteract = false;
