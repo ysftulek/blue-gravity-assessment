@@ -2,15 +2,21 @@ using UnityEngine;
 
 public class ShopKeeper : MonoBehaviour, IInteractable
 {
+	[SerializeField] GameObject _hintPanel;
 	[SerializeField] GameObject _shopPanel;
 	
-	public void StartInteracting(Interactor interactor)
+	public void EnableInteraction(Interactor interactor)
 	{
-		_shopPanel.SetActive(true);
+		_hintPanel.SetActive(true);
 	}
 	
-	public void StopInteracting(Interactor interactor)
+	public void DisableInteraction(Interactor interactor)
 	{
-		_shopPanel.SetActive(false);
+		_hintPanel.SetActive(false);
+	}
+	
+	public void Interact()
+	{
+		_shopPanel.SetActive(true);
 	}
 }

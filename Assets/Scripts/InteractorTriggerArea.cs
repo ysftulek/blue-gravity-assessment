@@ -14,7 +14,8 @@ public class InteractorTriggerArea : MonoBehaviour
 	{
 		if (col.TryGetComponent(out Interactor interactor))
 		{
-			_interactable.StartInteracting(interactor);
+			_interactable.EnableInteraction(interactor);
+			interactor.EnableInteraction(_interactable);
 		}
 	}
 	
@@ -22,7 +23,8 @@ public class InteractorTriggerArea : MonoBehaviour
 	{
 		if (col.TryGetComponent(out Interactor interactor))
 		{
-			_interactable.StopInteracting(interactor);
+			_interactable.DisableInteraction(interactor);
+			interactor.DisableInteraction();
 		}
 	}
 }
