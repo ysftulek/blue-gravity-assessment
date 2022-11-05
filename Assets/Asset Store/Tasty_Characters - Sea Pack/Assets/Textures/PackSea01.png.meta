@@ -1491,7 +1491,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PackSea01_53
+      name: Shadow
       rect:
         serializedVersion: 2
         x: 61
@@ -2291,7 +2291,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 0cdbb3d686f6d48e58a2047c6e065897
     internalID: 0
     vertices: []
     indices: 
@@ -2321,6 +2321,7 @@ TextureImporter:
       PackSea01_39: 21300078
       PackSea01_70: 21300140
       PackSea01_41: 21300082
+      Shadow: 21300106
       PackSea01_88: 21300176
       PackSea01_63: 21300126
       PackSea01_17: 21300034
@@ -2353,14 +2354,14 @@ TextureImporter:
       PackSea01_35: 21300070
       PackSea01_7: 21300014
       PackSea01_23: 21300046
-      PackSea01_47: 21300094
+      PackSea01_51: 21300102
       PackSea01_32: 21300064
       PackSea01_73: 21300146
       PackSea01_0: 21300000
       PackSea01_74: 21300148
       PackSea01_9: 21300018
-      PackSea01_51: 21300102
       PackSea01_4: 21300008
+      PackSea01_47: 21300094
       PackSea01_38: 21300076
       PackSea01_71: 21300142
       PackSea01_84: 21300168
@@ -2374,9 +2375,8 @@ TextureImporter:
       PackSea01_80: 21300160
       PackSea01_16: 21300032
       PackSea01_69: 21300138
-      PackSea01_53: 21300106
-      PackSea01_40: 21300080
       PackSea01_75: 21300150
+      PackSea01_40: 21300080
       PackSea01_59: 21300118
       PackSea01_85: 21300170
       PackSea01_72: 21300144
