@@ -1,6 +1,4 @@
 public interface IInteractable
 {
-	void EnableInteraction();
-	void DisableInteraction();
-	void Interact();
+	void Interact(Interactor interactor);
 }
