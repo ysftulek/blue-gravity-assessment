@@ -5,11 +5,13 @@ public class ShopOutfitSlot : MonoBehaviour
 {
 	[SerializeField] Image _itemImage;
 	[SerializeField] OutfitList _outfitList;
+	[SerializeField] Sprite _emptySlotSprite;
 
 	int _outfitIndex;
 	
-	public void Initialize()
+	public void Initialize(int wornIndex)
 	{
+		_outfitIndex = wornIndex;
 		UpdateImage();
 	}
 
@@ -35,6 +37,11 @@ public class ShopOutfitSlot : MonoBehaviour
 
 	void UpdateImage()
 	{
+		if (_outfitIndex == 0)
+		{
+			_itemImage.sprite = _emptySlotSprite;
+			return;
+		}
 		_itemImage.sprite = _outfitList.GetOutfit(_outfitIndex);
 	}
 }

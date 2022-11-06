@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Body List
   m_EditorClassIdentifier: 
   _outfits:
+  - {fileID: 0}
   - {fileID: 21300064, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
   - {fileID: 21300070, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
   - {fileID: 21300072, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
