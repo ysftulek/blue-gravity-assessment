@@ -1,23 +1,31 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class ShopKeeper : MonoBehaviour, IInteractable
 {
-	[SerializeField] HintPanel _hintPanel;
-	[SerializeField] GameObject _shopPanel;
+	[SerializeField] GameObject _shopPanelRoot;
+	[SerializeField] Transform _scalableShopPanel;
+	[SerializeField] ShopOutfitSlot _hatSlot;
+	[SerializeField] ShopOutfitSlot _bodySlot;
+	[SerializeField] Camera _outfitCam;
 	
-	public void EnableInteraction()
+	void Awake()
 	{
-		_hintPanel.Show();
+		_hatSlot.Initialize();
+		_bodySlot.Initialize();
 	}
 	
-	public void DisableInteraction()
+	public void Interact(Interactor interactor)
 	{
-		_hintPanel.Hide();
-		_shopPanel.SetActive(false);
+		_shopPanelRoot.SetActive(true);
+		_scalableShopPanel.DOComplete();
+		_scalableShopPanel.localScale = Vector3.one * float.Epsilon;
+		_scalableShopPanel.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
+		_outfitCam.transform.position = interactor.transform.position + Vector3.back * 10f + Vector3.up * 0.5f;
 	}
 	
-	public void Interact()
+	public void HideShop()
 	{
-		_shopPanel.SetActive(true);
+		_shopPanelRoot.SetActive(false);
 	}
 }
