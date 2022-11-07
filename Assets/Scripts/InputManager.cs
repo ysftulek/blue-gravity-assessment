@@ -4,7 +4,8 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
 	[SerializeField] InputChannel _inputChannel;
-	
+	[SerializeField] KeyCode _interactionKey;
+
 	void Update()
 	{
 		if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
@@ -16,6 +17,11 @@ public class InputManager : MonoBehaviour
 		if (Input.GetButtonUp("Horizontal") || Input.GetButtonUp("Vertical"))
 		{
 			_inputChannel.InvokeMovingFinished();
+		}
+
+		if (Input.GetKeyDown(_interactionKey))
+		{
+			_inputChannel.InvokeInteraction();
 		}
 	}
 }

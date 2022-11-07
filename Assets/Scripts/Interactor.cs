@@ -1,22 +1,22 @@
+using System;
 using UnityEngine;
 
 public class Interactor : MonoBehaviour
 {
 	[SerializeField] Mover _mover;
-	[SerializeField] KeyCode _interactionKey;
+	[SerializeField] InputChannel _inputChannel;
 	
 	Interactable _interactable;
-	
-	void Update()
+	bool _interacted;
+
+	void OnEnable()
 	{
-		if (_interactable)
-		{
-			if (Input.GetKeyDown(_interactionKey))
-			{
-				_interactable.GetComponent<IInteractable>().Interact(this);
-				_mover.enabled = false;
-			}
-		}
+		_inputChannel.InteractionPressed += InputChannelOnInteractionPressed;
+	}
+
+	void OnDisable()
+	{
+		_inputChannel.InteractionPressed -= InputChannelOnInteractionPressed;
 	}
 
 	void OnTriggerEnter2D(Collider2D col)
@@ -27,7 +27,7 @@ public class Interactor : MonoBehaviour
 			interactable.EnableInteraction();
 		}
 	}
-	
+
 	void OnTriggerExit2D(Collider2D col)
 	{
 		if (col.TryGetComponent(out Interactable interactable))
@@ -35,5 +35,26 @@ public class Interactor : MonoBehaviour
 			_interactable = null;
 			interactable.DisableInteraction();
 		}
+	}
+	
+	void InputChannelOnInteractionPressed()
+	{
+		if (!_interactable || _interacted)
+			return;
+		
+		_interactable.GetComponent<IInteractable>().Interact(this, OnInteractionEnded);
+		OnInteractionStarted();
+	}
+
+	void OnInteractionStarted()
+	{
+		_mover.SetActiveMovement(false);
+		_interacted = true;
+	}
+
+	void OnInteractionEnded()
+	{
+		_mover.SetActiveMovement(true);
+		_interacted = false;
 	}
 }

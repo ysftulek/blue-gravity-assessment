@@ -6,6 +6,7 @@ public class InputChannel : ScriptableObject
 {
 	public event Action<Vector2> Moving;
 	public event Action MovingFinished;
+	public event Action InteractionPressed;
 
 	public void InvokeMoving(Vector2 moveVector)
 	{
@@ -15,5 +16,10 @@ public class InputChannel : ScriptableObject
 	public void InvokeMovingFinished()
 	{
 		MovingFinished?.Invoke();
+	}
+	
+	public void InvokeInteraction()
+	{
+		InteractionPressed?.Invoke();
 	}
 }
