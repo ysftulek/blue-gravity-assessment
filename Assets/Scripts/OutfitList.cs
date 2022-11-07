@@ -3,9 +3,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Outfit List", menuName = "Outfit List", order = 0)]
 public class OutfitList : ScriptableObject
 {
-	[SerializeField] Sprite[] _outfits;
+	[SerializeField] SpritePricePair[] _outfits;
 
-	public Sprite GetOutfit(int index)
+	public SpritePricePair GetOutfit(int index)
 	{
 		return _outfits[index];
 	}
