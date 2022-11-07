@@ -8,6 +8,10 @@ public class Mover : MonoBehaviour
 	[SerializeField, Tooltip("unit per seconds")] float _moveSpeed;
 
 	Vector3 _moveVector;
+	bool _canMove = true;
+
+	public event Action MovingStarted;
+	public event Action Stopped;
 	
 	void OnEnable()
 	{
@@ -23,17 +27,37 @@ public class Mover : MonoBehaviour
 
 	void FixedUpdate()
 	{
+		if (!_canMove)
+		{
+			_rigidbody2D.velocity = Vector2.zero;
+			return;
+		}
+		
 		_rigidbody2D.velocity = _moveVector;
+	}
+
+	public void SetActiveMovement(bool state)
+	{
+		_canMove = state;
 	}
 	
 	void InputChannelOnMoving(Vector2 obj)
 	{
+		if (_canMove && _moveVector == Vector3.zero)
+		{
+			MovingStarted?.Invoke();
+		}
+		
 		Vector2 normalized = obj.normalized;
 		_moveVector = normalized * _moveSpeed;
 	}
 
 	void InputChannelOnMovingFinished()
 	{
+		if (_canMove)
+		{
+			Stopped?.Invoke();
+		}
 		_moveVector = Vector3.zero;
 	}
 }
