@@ -42,11 +42,11 @@ public class Interactor : MonoBehaviour
 		if (!_interactable || _interacted)
 			return;
 		
-		_interactable.GetComponent<IInteractable>().Interact(this, OnInteractionEnded);
-		OnInteractionStarted();
+		OnInteractionStarting();
+		_interactable.Interact(this, OnInteractionEnded);
 	}
 
-	void OnInteractionStarted()
+	void OnInteractionStarting()
 	{
 		_mover.SetActiveMovement(false);
 		_interacted = true;
