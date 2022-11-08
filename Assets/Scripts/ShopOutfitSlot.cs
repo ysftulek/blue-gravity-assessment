@@ -15,7 +15,7 @@ public class ShopOutfitSlot : MonoBehaviour
 	List<int> _obtainedOutfitIndex;
 	int _outfitIndex;
 	
-	public event Action ItemBought;
+	public event Action<int, int> ItemBought;
 	public event Action<Sprite> ItemUpdated;
 
 	public void Initialize(int wornIndex, List<int> obtainedOutfitIndex)
@@ -39,7 +39,11 @@ public class ShopOutfitSlot : MonoBehaviour
 
 	public void BuyItem()
 	{
-		ItemBought?.Invoke();
+		if (!_obtainedOutfitIndex.Contains(_outfitIndex))
+		{
+			ItemBought?.Invoke(_outfitIndex, _outfitList.GetOutfit(_outfitIndex).Price);
+			UpdateAllImages();
+		}
 	}
 
 	int IncreaseIndex(int index)

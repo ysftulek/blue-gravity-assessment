@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e3bfc870aea49db95f745c90f202c0d, type: 3}
-  m_Name: Save Data
+  m_Name: Saved Hats
   m_EditorClassIdentifier: 
-  ObtainedHatIndexes: 
+  ObtainedHatIndexes: 0300000005000000
   ObtainedBodyIndexes: 00000000

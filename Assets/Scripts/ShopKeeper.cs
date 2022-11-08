@@ -9,6 +9,9 @@ public class ShopKeeper : MonoBehaviour, IInteractable
 	[SerializeField] ShopOutfitSlot _hatSlot;
 	[SerializeField] ShopOutfitSlot _bodySlot;
 	[SerializeField] Camera _outfitCam;
+	[SerializeField] SavedOutfits _savedHats;
+	[SerializeField] SavedOutfits _savedBodies;
+	[SerializeField] SaveableRuntimeIntVariable _money;
 
 	Inventory _inventory;
 	
@@ -18,12 +21,16 @@ public class ShopKeeper : MonoBehaviour, IInteractable
 	{
 		_hatSlot.ItemUpdated += HatSlotOnItemUpdated;
 		_bodySlot.ItemUpdated += BodySlotOnItemUpdated;
+		_hatSlot.ItemBought += HatSlotOnItemBought;
+		_bodySlot.ItemBought += BodySlotOnItemBought;
 	}
-
+	
 	void OnDisable()
 	{
 		_hatSlot.ItemUpdated -= HatSlotOnItemUpdated;
 		_bodySlot.ItemUpdated -= BodySlotOnItemUpdated;
+		_hatSlot.ItemBought -= HatSlotOnItemBought;
+		_bodySlot.ItemBought -= BodySlotOnItemBought;
 	}
 
 	public void Interact(Interactor interactor, Action interactionEndedCallback)
@@ -38,8 +45,8 @@ public class ShopKeeper : MonoBehaviour, IInteractable
 		if (interactor.TryGetComponent(out Inventory inventory))
 		{
 			_inventory = inventory;
-			_hatSlot.Initialize(inventory.Hat.WornOutfitIndex, inventory.SavedOutfits.ObtainedHatIndexes);
-			_bodySlot.Initialize(inventory.Body.WornOutfitIndex, inventory.SavedOutfits.ObtainedBodyIndexes);
+			_hatSlot.Initialize(inventory.Hat.WornOutfitIndex, inventory.SavedHats.GetSavedIndexes);
+			_bodySlot.Initialize(inventory.Body.WornOutfitIndex, inventory.SavedBodies.GetSavedIndexes);
 		}
 	}
 
@@ -50,7 +57,25 @@ public class ShopKeeper : MonoBehaviour, IInteractable
 		_interactionEnded?.Invoke();
 		_interactionEnded = null;
 	}
+
+	void TryBuyItem(SavedOutfits savedOutfits, int index, int price)
+	{
+		if (_money.RuntimeValue >= price)
+		{
+			savedOutfits.AddOutfit(index);
+		}
+	}
+
+	void BodySlotOnItemBought(int index, int price)
+	{
+		TryBuyItem(_savedBodies, index, price);
+	}
 	
+	void HatSlotOnItemBought(int index, int price)
+	{
+		TryBuyItem(_savedHats, index, price);
+	}
+
 	void HatSlotOnItemUpdated(Sprite obj)
 	{
 		_inventory.Hat.PreviewOutfit(obj);
