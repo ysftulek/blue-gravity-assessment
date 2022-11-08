@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,16 +11,15 @@ public class ShopOutfitSlot : MonoBehaviour
 	[SerializeField] TextMeshProUGUI _itemPrice;
 	[SerializeField] OutfitList _outfitList;
 
-	List<int> _obtainedOutfitIndex;
 	int _outfitIndex;
+
+	public ItemInfo GetSelectedItem => _outfitList.GetItemInfo(_outfitIndex);
 	
-	public event Action<int, int> ItemBought;
+	public event Action<ItemInfo> ItemBought;
 	public event Action<Sprite> ItemUpdated;
 
-	public void Initialize(int wornIndex, List<int> obtainedOutfitIndex)
+	public void Initialize()
 	{
-		_outfitIndex = wornIndex;
-		_obtainedOutfitIndex = obtainedOutfitIndex;
 		UpdateAllImages();
 	}
 
@@ -39,9 +37,9 @@ public class ShopOutfitSlot : MonoBehaviour
 
 	public void BuyItem()
 	{
-		if (!_obtainedOutfitIndex.Contains(_outfitIndex))
+		if (_outfitList.GetItem(_outfitIndex).RuntimeValue == 0)
 		{
-			ItemBought?.Invoke(_outfitIndex, _outfitList.GetOutfit(_outfitIndex).Price);
+			ItemBought?.Invoke(_outfitList.GetItemInfo(_outfitIndex));
 			UpdateAllImages();
 		}
 	}
@@ -49,7 +47,7 @@ public class ShopOutfitSlot : MonoBehaviour
 	int IncreaseIndex(int index)
 	{
 		index++;
-		if (index >= _outfitList.Count())
+		if (index >= _outfitList.Count)
 		{
 			index = 0;
 		}
@@ -61,7 +59,7 @@ public class ShopOutfitSlot : MonoBehaviour
 		index--;
 		if (index < 0)
 		{
-			index = _outfitList.Count() - 1;
+			index = _outfitList.Count - 1;
 		}
 		return index;
 	}
@@ -72,22 +70,25 @@ public class ShopOutfitSlot : MonoBehaviour
 		SetPrice(_outfitIndex);
 		if (_outfitIndex == 0)
 		{
-			ItemUpdated?.Invoke(null);
+			//ItemUpdated?.Invoke(null);
 		}
 		else
 		{
-			ItemUpdated?.Invoke(_outfitList.GetOutfit(_outfitIndex).Sprite);
+			//ItemUpdated?.Invoke(_outfitList.GetOutfitInfo(_outfitIndex).Sprite);
 		}
+		
+		ItemUpdated?.Invoke(_outfitList.GetOutfitInfo(_outfitIndex).Sprite);
+
 		UpdateImage(_previousItemImage, DecreaseIndex(_outfitIndex));
 		UpdateImage(_nextItemImage, IncreaseIndex(_outfitIndex));
 	}
 	
 	void UpdateImage(SlotImage previewSlot, int index)
 	{
-		SpritePricePair pair = _outfitList.GetOutfit(index);
-		previewSlot.PreviewImage.sprite = pair.Sprite;
+		ItemInfo itemInfo = _outfitList.GetItemInfo(index);
+		previewSlot.PreviewImage.sprite = itemInfo.SpritePricePair.Sprite;
 
-		if (_obtainedOutfitIndex.Contains(index))
+		if (itemInfo.Item.RuntimeValue == 1)
 		{
 			previewSlot.SoldImage.enabled = true;
 			previewSlot.PreviewImage.SetAlpha(0.5f);
@@ -101,14 +102,7 @@ public class ShopOutfitSlot : MonoBehaviour
 
 	void SetPrice(int index)
 	{
-		if (index == 0)
-		{
-			_itemPrice.text = string.Empty;
-		}
-		else
-		{
-			_itemPrice.text = "<size=30>$</size>" + _outfitList.GetOutfit(index).Price;
-		}
+		_itemPrice.text = "<size=30>$</size>" + _outfitList.GetOutfitInfo(index).Price;
 	}
 
 	[Serializable]

@@ -9,12 +9,9 @@ public class ShopKeeper : MonoBehaviour, IInteractable
 	[SerializeField] ShopOutfitSlot _hatSlot;
 	[SerializeField] ShopOutfitSlot _bodySlot;
 	[SerializeField] Camera _outfitCam;
-	[SerializeField] SavedOutfits _savedHats;
-	[SerializeField] SavedOutfits _savedBodies;
 	[SerializeField] SaveableRuntimeIntVariable _money;
 
 	Inventory _inventory;
-	
 	Action _interactionEnded;
 
 	void OnEnable()
@@ -45,35 +42,49 @@ public class ShopKeeper : MonoBehaviour, IInteractable
 		if (interactor.TryGetComponent(out Inventory inventory))
 		{
 			_inventory = inventory;
-			_hatSlot.Initialize(inventory.Hat.WornOutfitIndex, inventory.SavedHats.GetSavedIndexes);
-			_bodySlot.Initialize(inventory.Body.WornOutfitIndex, inventory.SavedBodies.GetSavedIndexes);
+			_hatSlot.Initialize();
+			_bodySlot.Initialize();
 		}
 	}
 
 	public void HideShop()
 	{
 		_shopPanelRoot.SetActive(false);
-		_inventory.ResetAll();
+		SetInteractorOutfit(_hatSlot, _inventory.Hat);
+		SetInteractorOutfit(_bodySlot, _inventory.Body);
 		_interactionEnded?.Invoke();
 		_interactionEnded = null;
 	}
 
-	void TryBuyItem(SavedOutfits savedOutfits, int index, int price)
+	void SetInteractorOutfit(ShopOutfitSlot shopOutfitSlot, Outfit outfit)
 	{
-		if (_money.RuntimeValue >= price)
+		if (shopOutfitSlot.GetSelectedItem.Item.RuntimeValue == 1)
 		{
-			savedOutfits.AddOutfit(index);
+			outfit.SetOutfit(shopOutfitSlot.GetSelectedItem);
+		}
+		else
+		{
+			outfit.ResetOutfit();
+		}
+	}
+	
+	void TryBuyItem(ItemInfo itemInfo)
+	{
+		if (_money.RuntimeValue >= itemInfo.SpritePricePair.Price)
+		{
+			itemInfo.Item.RuntimeValue = 1;
+			_money.RuntimeValue -= itemInfo.SpritePricePair.Price;
 		}
 	}
 
-	void BodySlotOnItemBought(int index, int price)
+	void BodySlotOnItemBought(ItemInfo itemInfo)
 	{
-		TryBuyItem(_savedBodies, index, price);
+		TryBuyItem(itemInfo);
 	}
 	
-	void HatSlotOnItemBought(int index, int price)
+	void HatSlotOnItemBought(ItemInfo itemInfo)
 	{
-		TryBuyItem(_savedHats, index, price);
+		TryBuyItem(itemInfo);
 	}
 
 	void HatSlotOnItemUpdated(Sprite obj)

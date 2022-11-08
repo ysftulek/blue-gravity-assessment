@@ -8,7 +8,7 @@ public class Outfit
 
 	Sprite _defaultOutfitSprite;
 
-	public int WornOutfitIndex { get; private set; }
+	public ItemInfo WornItemInfo { get; private set; }
 
 	public void SetupDefaultSprite()
 	{
@@ -20,10 +20,10 @@ public class Outfit
 		_outfitSprite.sprite = sprite == null ? _defaultOutfitSprite : sprite;
 	}
 
-	public void SetOutfit(Sprite sprite, int index)
+	public void SetOutfit(ItemInfo itemInfo)
 	{
-		_outfitSprite.sprite = sprite;
-		WornOutfitIndex = index;
+		_outfitSprite.sprite = itemInfo.SpritePricePair.Sprite;
+		WornItemInfo = itemInfo;
 	}
 	
 	public void ResetOutfit()

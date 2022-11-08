@@ -7,16 +7,16 @@ public class Inventory : MonoBehaviour
 	[SerializeField] OutfitList _bodyList;
 	[SerializeField] InventoryUI _inventoryUI;
 	[SerializeField] InputChannel _inputChannel;
+	[SerializeField] ItemLookup _itemLookup;
+	[SerializeField] SaveableRuntimeIntVariable _money;
 	
-	public SavedOutfits SavedHats;
-	public SavedOutfits SavedBodies;
 	public Outfit Hat;
 	public Outfit Body;
 
-	List<ItemInfo> _itemInfos;
+	List<SaveableRuntimeIntVariable> _ownedItems;
 	bool _inventoryToggle;
 
-	void Awake()
+	void Start()
 	{
 		Hat.SetupDefaultSprite();
 		Body.SetupDefaultSprite();
@@ -27,54 +27,41 @@ public class Inventory : MonoBehaviour
 	void OnEnable()
 	{
 		_inputChannel.InventoryToggled += InputChannelOnInventoryToggled;
-		SavedHats.SavedAdded += SavedHatsOnSavedAdded;
-		SavedBodies.SavedAdded += SavedBodiesOnSavedAdded;
 	}
 
 	void OnDisable()
 	{
 		_inputChannel.InventoryToggled -= InputChannelOnInventoryToggled;
-		SavedHats.SavedAdded -= SavedHatsOnSavedAdded;
-		SavedBodies.SavedAdded -= SavedBodiesOnSavedAdded;
 	}
 
-	public void ResetAll()
+	public void SellItem(ItemInfo itemInfo)
 	{
-		Hat.ResetOutfit();
-		Body.ResetOutfit();
+		_money.RuntimeValue += itemInfo.SpritePricePair.Price;
+		itemInfo.Item.RuntimeValue = 0;
 	}
 
 	void PullSavedOutfits()
 	{
-		_itemInfos = new List<ItemInfo>();
+		_ownedItems = new List<SaveableRuntimeIntVariable>();
 		
-		for (int i = 0; i < SavedHats.Count; i++)
+		for (int i = 0; i < _hatList.Count; i++)
 		{
-			AddItem(SavedHats.GetOutfitIndex(i), _hatList);
+			AddItem(_hatList.GetItem(i));
 		}
 
-		for (int i = 0; i < SavedBodies.Count; i++)
+		for (int i = 0; i < _bodyList.Count; i++)
 		{
-			AddItem(SavedBodies.GetOutfitIndex(i), _bodyList);
+			AddItem(_bodyList.GetItem(i));
 		}
 	}
-	
-	void SavedBodiesOnSavedAdded(int obj)
-	{
-		AddItem(obj, _bodyList);
-	}
 
-	void SavedHatsOnSavedAdded(int obj)
-	{
-		AddItem(obj, _hatList);
-	}
-	
 	void InputChannelOnInventoryToggled()
 	{
 		_inventoryToggle = !_inventoryToggle;
 		if (_inventoryToggle)
 		{
-			_inventoryUI.Show(_itemInfos);
+			ItemInfo[] itemInfos = _itemLookup.GetItemInfos(_ownedItems);
+			_inventoryUI.Show(itemInfos, this);
 		}
 		else
 		{
@@ -82,11 +69,11 @@ public class Inventory : MonoBehaviour
 		}
 	}
 
-	void AddItem(int index, OutfitList outfitList)
+	void AddItem(SaveableRuntimeIntVariable item)
 	{
-		ItemInfo info = new ItemInfo();
-		info.ItemList = outfitList;
-		info.ItemIndex = index;
-		_itemInfos.Add(info);
+		if (item.RuntimeValue == 1)
+		{
+			_ownedItems.Add(item);
+		}
 	}
 }
