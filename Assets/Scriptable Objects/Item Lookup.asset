@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e3bfc870aea49db95f745c90f202c0d, type: 3}
-  m_Name: Saved Hats
+  m_Script: {fileID: 11500000, guid: 6b23038c10df45f2b9f91a561e908e5a, type: 3}
+  m_Name: Item Lookup
   m_EditorClassIdentifier: 
-  ObtainedHatIndexes: 0300000005000000
-  ObtainedBodyIndexes: 00000000
+  _outfitLists:
+  - {fileID: 11400000, guid: d612edee5a52743e9aef8b890aa1bf5d, type: 2}
+  - {fileID: 11400000, guid: 725a20878ff77432996eada7af114d62, type: 2}

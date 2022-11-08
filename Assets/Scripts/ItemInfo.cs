@@ -1,5 +1,8 @@
+using System;
+
+[Serializable]
 public struct ItemInfo
 {
-	public OutfitList ItemList;
-	public int ItemIndex;
+	public SaveableRuntimeIntVariable Item;
+	public SpritePricePair SpritePricePair;
 }

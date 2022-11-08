@@ -13,15 +13,23 @@ MonoBehaviour:
   m_Name: Hat List
   m_EditorClassIdentifier: 
   _outfits:
-  - Sprite: {fileID: 21300000, guid: 43e17fb59bccf0748b04cccfc220a522, type: 3}
-    Price: 0
-  - Sprite: {fileID: 21300028, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
-    Price: 10
-  - Sprite: {fileID: 21300014, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
-    Price: 25
-  - Sprite: {fileID: 21300016, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
-    Price: 50
-  - Sprite: {fileID: 21300018, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
-    Price: 70
-  - Sprite: {fileID: 21300020, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
-    Price: 90
+  - Item: {fileID: 11400000, guid: 7683400ef014f49f482a1176400fe5ea, type: 2}
+    SpritePricePair:
+      Sprite: {fileID: 21300028, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
+      Price: 15
+  - Item: {fileID: 11400000, guid: 28effd95a6aed47b2b31820b9b58d70b, type: 2}
+    SpritePricePair:
+      Sprite: {fileID: 21300014, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
+      Price: 30
+  - Item: {fileID: 11400000, guid: b0084571648d64f558cee44445f1218c, type: 2}
+    SpritePricePair:
+      Sprite: {fileID: 21300016, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
+      Price: 45
+  - Item: {fileID: 11400000, guid: 14799c0a054d341d68a1cebe1a6a7bd0, type: 2}
+    SpritePricePair:
+      Sprite: {fileID: 21300018, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
+      Price: 60
+  - Item: {fileID: 11400000, guid: 556b8698ee2f544d9ac9325b512dece2, type: 2}
+    SpritePricePair:
+      Sprite: {fileID: 21300020, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
+      Price: 80

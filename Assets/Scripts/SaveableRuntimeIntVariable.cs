@@ -16,7 +16,7 @@ public class SaveableRuntimeIntVariable : SaveableSO
 		{
 			_runtimeValue = value;
 			ValueChanged?.Invoke(_runtimeValue);
-			SaveManager.SaveInt(this);
+			SaveManager.Save(this);
 		}
 	}
 	public override object GetDefaultValue => _initialValue;
@@ -35,6 +35,6 @@ public class SaveableRuntimeIntVariable : SaveableSO
 
 	protected override void SceneManagerOnsceneLoaded(Scene arg0, LoadSceneMode arg1)
 	{
-		SaveManager.RestoreInt(this);
+		SaveManager.Restore(this);
 	}
 }

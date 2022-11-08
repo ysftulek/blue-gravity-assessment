@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
@@ -6,7 +7,7 @@ public static class SaveManager
 	static SaveData saveData;
 	static readonly string SavePath = Path.Combine(Application.persistentDataPath, "gamedata.json");
 	
-	public static void RestoreInt(SaveableSO saveable)
+	public static void Restore(SaveableSO saveable)
 	{
 		saveData ??= File.Exists(SavePath) ? JsonUtility.FromJson<SaveData>(File.ReadAllText(SavePath)) : new SaveData();
 
@@ -20,7 +21,7 @@ public static class SaveManager
 		}
 	}
 
-	public static void SaveInt(SaveableSO saveable)
+	public static void Save(SaveableSO saveable)
 	{
 		if (saveData == null)
 		{
@@ -40,7 +41,7 @@ public static class SaveManager
 			}
 		}
 	}
-
+	
 	public static void WriteToDisk()
 	{
 		if (saveData == null)

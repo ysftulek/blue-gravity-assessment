@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Money
   m_EditorClassIdentifier: 
   _guid: 61065bafbe00b481e944dbd48a4f1765
-  _initialValue: 90
+  _initialValue: 150

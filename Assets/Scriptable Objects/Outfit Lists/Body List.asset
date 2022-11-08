@@ -13,27 +13,51 @@ MonoBehaviour:
   m_Name: Body List
   m_EditorClassIdentifier: 
   _outfits:
-  - Sprite: {fileID: 21300064, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
-    Price: 0
-  - Sprite: {fileID: 21300070, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
-    Price: 5
-  - Sprite: {fileID: 21300072, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
-    Price: 15
-  - Sprite: {fileID: 21300058, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
-    Price: 25
-  - Sprite: {fileID: 21300060, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
-    Price: 40
-  - Sprite: {fileID: 21300076, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
-    Price: 50
-  - Sprite: {fileID: 21300160, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
-    Price: 65
-  - Sprite: {fileID: 21300164, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
-    Price: 80
-  - Sprite: {fileID: 21300152, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
-    Price: 85
-  - Sprite: {fileID: 21300166, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
-    Price: 95
-  - Sprite: {fileID: 21300146, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
-    Price: 110
-  - Sprite: {fileID: 21300148, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
-    Price: 140
+  - Item: {fileID: 11400000, guid: f81c37bf9d6b04785b159deb0d6f8e58, type: 2}
+    SpritePricePair:
+      Sprite: {fileID: 21300064, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
+      Price: 0
+  - Item: {fileID: 11400000, guid: fd12739b058fd4d148b915512019c616, type: 2}
+    SpritePricePair:
+      Sprite: {fileID: 21300070, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
+      Price: 20
+  - Item: {fileID: 11400000, guid: f4ddfcd45b0dc4b22b5603974c2a7b34, type: 2}
+    SpritePricePair:
+      Sprite: {fileID: 21300072, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
+      Price: 40
+  - Item: {fileID: 11400000, guid: c2f3756d5a3f74ce28e479dd23ec1a51, type: 2}
+    SpritePricePair:
+      Sprite: {fileID: 21300058, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
+      Price: 60
+  - Item: {fileID: 11400000, guid: b042c3f39ddb94dca8ee8cd469a5bf2b, type: 2}
+    SpritePricePair:
+      Sprite: {fileID: 21300060, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
+      Price: 80
+  - Item: {fileID: 11400000, guid: a3e4c5de2a1cb470abe14b6dbcf00484, type: 2}
+    SpritePricePair:
+      Sprite: {fileID: 21300076, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
+      Price: 100
+  - Item: {fileID: 11400000, guid: 521ff5c315e5345c8bd3886a1dd0ae1b, type: 2}
+    SpritePricePair:
+      Sprite: {fileID: 21300160, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
+      Price: 120
+  - Item: {fileID: 11400000, guid: 83470f4fdfc4b491ca01c94d8720fc4a, type: 2}
+    SpritePricePair:
+      Sprite: {fileID: 21300164, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
+      Price: 140
+  - Item: {fileID: 11400000, guid: 9559eee0f29834ea595b26d080aece87, type: 2}
+    SpritePricePair:
+      Sprite: {fileID: 21300152, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
+      Price: 160
+  - Item: {fileID: 11400000, guid: 30fa22e6cfd79488b929bd642a08b301, type: 2}
+    SpritePricePair:
+      Sprite: {fileID: 21300166, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
+      Price: 180
+  - Item: {fileID: 11400000, guid: 884d4487a0e38417f8127709377be81c, type: 2}
+    SpritePricePair:
+      Sprite: {fileID: 21300146, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
+      Price: 200
+  - Item: {fileID: 11400000, guid: ba6f5567d9c3447b2a832231ff21210a, type: 2}
+    SpritePricePair:
+      Sprite: {fileID: 21300148, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
+      Price: 220
