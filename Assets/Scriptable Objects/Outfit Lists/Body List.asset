@@ -13,10 +13,6 @@ MonoBehaviour:
   m_Name: Body List
   m_EditorClassIdentifier: 
   _outfits:
-  - Item: {fileID: 11400000, guid: f81c37bf9d6b04785b159deb0d6f8e58, type: 2}
-    SpritePricePair:
-      Sprite: {fileID: 21300064, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
-      Price: 0
   - Item: {fileID: 11400000, guid: fd12739b058fd4d148b915512019c616, type: 2}
     SpritePricePair:
       Sprite: {fileID: 21300070, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
