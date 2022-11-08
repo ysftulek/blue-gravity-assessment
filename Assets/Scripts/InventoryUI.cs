@@ -1,17 +1,19 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class InventoryUI : MonoBehaviour
 {
 	[SerializeField] InventorySlot[] _inventorySlots;
 
+	Inventory _inventory;
 	int _index;
 	
-	public void Show(List<ItemInfo> itemInfo)
+	public void Show(ItemInfo[] item, Inventory inventory)
 	{
-		for (int i = 0; i < itemInfo.Count; i++)
+		_inventory = inventory;
+		
+		for (int i = 0; i < item.Length; i++)
 		{
-			_inventorySlots[i].Initialize(itemInfo[i]);
+			_inventorySlots[i].Initialize(this, item[i]);
 		}
 		
 		gameObject.SetActive(true);
@@ -22,6 +24,11 @@ public class InventoryUI : MonoBehaviour
 		gameObject.SetActive(false);
 	}
 
+	public void SellItem(ItemInfo itemInfo)
+	{
+		_inventory.SellItem(itemInfo);
+	}
+	
 	void Reset()
 	{
 		_inventorySlots = GetComponentsInChildren<InventorySlot>();
