@@ -30,6 +30,11 @@ namespace BlueGravity.Items
 
 		void SellItem()
 		{
+			if (_itemInfo.Item == null)
+			{
+				return;
+			}
+			
 			_inventoryUI.SellItem(_itemInfo);
 			_itemInfo = new ItemInfo();
 			_itemImage.sprite = null;
