@@ -1,5 +1,6 @@
 using System;
-namespace BlueGravity
+
+namespace BlueGravity.Interaction
 {
 	public interface IInteractable
 	{

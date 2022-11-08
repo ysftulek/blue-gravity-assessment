@@ -1,5 +1,6 @@
 using UnityEngine;
-namespace BlueGravity
+
+namespace BlueGravity.Interaction
 {
 	public class Interactor : MonoBehaviour
 	{

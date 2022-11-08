@@ -2,7 +2,8 @@ using System;
 using BlueGravity.Save_System;
 using DG.Tweening;
 using UnityEngine;
-namespace BlueGravity
+
+namespace BlueGravity.Interaction
 {
 	public class ChestOpener : MonoBehaviour, IInteractable
 	{

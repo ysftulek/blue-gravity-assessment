@@ -1,7 +1,8 @@
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
-namespace BlueGravity
+
+namespace BlueGravity.Interaction
 {
 	public class HintPanel : MonoBehaviour
 	{

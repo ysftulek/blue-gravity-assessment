@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
-namespace BlueGravity
+
+namespace BlueGravity.Interaction
 {
 	public class Interactable : MonoBehaviour
 	{
