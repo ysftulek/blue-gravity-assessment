@@ -1,6 +1,7 @@
 using BlueGravity.Save_System;
 using UnityEngine;
-namespace BlueGravity
+
+namespace BlueGravity.Items
 {
 	[CreateAssetMenu(fileName = "Outfit List", menuName = "Outfit List", order = 0)]
 	public class OutfitList : ScriptableObject

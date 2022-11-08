@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
-namespace BlueGravity
+
+namespace BlueGravity.Items
 {
 	[Serializable]
 	public struct SpritePricePair

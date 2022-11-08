@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using BlueGravity.Save_System;
 using UnityEngine;
-namespace BlueGravity
+
+namespace BlueGravity.Items
 {
 	public class Inventory : MonoBehaviour
 	{

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
-namespace BlueGravity
+
+namespace BlueGravity.Items
 {
 	public class InventoryUI : MonoBehaviour
 	{

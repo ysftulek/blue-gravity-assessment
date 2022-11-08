@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
-namespace BlueGravity
+
+namespace BlueGravity.Items
 {
 	public class ShopOutfitSlotBuyer : MonoBehaviour, IPointerDownHandler
 	{

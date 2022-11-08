@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using BlueGravity.Save_System;
 using UnityEngine;
 
-namespace BlueGravity
+namespace BlueGravity.Items
 {
 	[CreateAssetMenu(fileName = "Item Lookup", menuName = "Item Lookup", order = 0)]
 	public class ItemLookup : ScriptableObject

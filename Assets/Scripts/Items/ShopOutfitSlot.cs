@@ -2,7 +2,8 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-namespace BlueGravity
+
+namespace BlueGravity.Items
 {
 	public class ShopOutfitSlot : MonoBehaviour
 	{
