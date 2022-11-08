@@ -10,7 +10,7 @@ public class Outfit
 
 	public int WornOutfitIndex { get; private set; }
 
-	public void Initialize()
+	public void SetupDefaultSprite()
 	{
 		_defaultOutfitSprite = _outfitSprite.sprite;
 	}

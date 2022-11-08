@@ -5,6 +5,7 @@ public class InputManager : MonoBehaviour
 {
 	[SerializeField] InputChannel _inputChannel;
 	[SerializeField] KeyCode _interactionKey;
+	[SerializeField] KeyCode _inventoryKey;
 
 	void Update()
 	{
@@ -22,6 +23,11 @@ public class InputManager : MonoBehaviour
 		if (Input.GetKeyDown(_interactionKey))
 		{
 			_inputChannel.InvokeInteraction();
+		}
+		
+		if (Input.GetKeyDown(_inventoryKey))
+		{
+			_inputChannel.InvokeTogglingInventory();
 		}
 	}
 }

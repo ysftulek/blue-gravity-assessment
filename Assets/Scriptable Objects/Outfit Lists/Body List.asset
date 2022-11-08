@@ -13,16 +13,27 @@ MonoBehaviour:
   m_Name: Body List
   m_EditorClassIdentifier: 
   _outfits:
-  - {fileID: 0}
-  - {fileID: 21300064, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
-  - {fileID: 21300070, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
-  - {fileID: 21300072, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
-  - {fileID: 21300058, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
-  - {fileID: 21300060, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
-  - {fileID: 21300076, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
-  - {fileID: 21300160, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
-  - {fileID: 21300164, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
-  - {fileID: 21300152, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
-  - {fileID: 21300166, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
-  - {fileID: 21300146, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
-  - {fileID: 21300148, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
+  - Sprite: {fileID: 21300064, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
+    Price: 0
+  - Sprite: {fileID: 21300070, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
+    Price: 5
+  - Sprite: {fileID: 21300072, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
+    Price: 15
+  - Sprite: {fileID: 21300058, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
+    Price: 25
+  - Sprite: {fileID: 21300060, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
+    Price: 40
+  - Sprite: {fileID: 21300076, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
+    Price: 50
+  - Sprite: {fileID: 21300160, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
+    Price: 65
+  - Sprite: {fileID: 21300164, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
+    Price: 80
+  - Sprite: {fileID: 21300152, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
+    Price: 85
+  - Sprite: {fileID: 21300166, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
+    Price: 95
+  - Sprite: {fileID: 21300146, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
+    Price: 110
+  - Sprite: {fileID: 21300148, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
+    Price: 140
