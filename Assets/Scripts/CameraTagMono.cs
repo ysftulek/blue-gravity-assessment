@@ -1,21 +1,23 @@
 using Cinemachine;
 using UnityEngine;
-
-[RequireComponent(typeof(CinemachineVirtualCamera))]
-public class CameraTagMono : MonoBehaviour
+namespace BlueGravity
 {
-	[SerializeField] CameraTag _cameraTag;
-
-	CinemachineVirtualCamera _virtualCamera;
-
-	void OnEnable()
+	[RequireComponent(typeof(CinemachineVirtualCamera))]
+	public class CameraTagMono : MonoBehaviour
 	{
-		_virtualCamera = GetComponent<CinemachineVirtualCamera>();
-		_cameraTag.Register(_virtualCamera, _virtualCamera.enabled);
-	}
+		[SerializeField] CameraTag _cameraTag;
 
-	void OnDisable()
-	{
-		_cameraTag.Unregister();
+		CinemachineVirtualCamera _virtualCamera;
+
+		void OnEnable()
+		{
+			_virtualCamera = GetComponent<CinemachineVirtualCamera>();
+			_cameraTag.Register(_virtualCamera, _virtualCamera.enabled);
+		}
+
+		void OnDisable()
+		{
+			_cameraTag.Unregister();
+		}
 	}
 }

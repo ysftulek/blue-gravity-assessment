@@ -1,18 +1,20 @@
-using System;
+using BlueGravity.Save_System;
 using UnityEngine;
-
-public class ApplicationCallbackChannel : MonoBehaviour
+namespace BlueGravity
 {
-	void OnApplicationPause(bool pauseStatus)
+	public class ApplicationCallbackChannel : MonoBehaviour
 	{
-		if (pauseStatus)
+		void OnApplicationPause(bool pauseStatus)
+		{
+			if (pauseStatus)
+			{
+				SaveManager.WriteToDisk();
+			}
+		}
+
+		void OnApplicationQuit()
 		{
 			SaveManager.WriteToDisk();
 		}
-	}
-
-	void OnApplicationQuit()
-	{
-		SaveManager.WriteToDisk();
 	}
 }

@@ -1,8 +1,12 @@
 using System;
+using BlueGravity.Save_System;
 
-[Serializable]
-public struct ItemInfo
+namespace BlueGravity
 {
-	public SaveableRuntimeIntVariable Item;
-	public SpritePricePair SpritePricePair;
+	[Serializable]
+	public struct ItemInfo
+	{
+		public SaveableRuntimeIntVariable Item;
+		public SpritePricePair SpritePricePair;
+	}
 }

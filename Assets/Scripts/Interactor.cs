@@ -1,60 +1,61 @@
-using System;
 using UnityEngine;
-
-public class Interactor : MonoBehaviour
+namespace BlueGravity
 {
-	[SerializeField] Mover _mover;
-	[SerializeField] InputChannel _inputChannel;
+	public class Interactor : MonoBehaviour
+	{
+		[SerializeField] Mover _mover;
+		[SerializeField] InputChannel _inputChannel;
 	
-	Interactable _interactable;
-	bool _interacted;
+		Interactable _interactable;
+		bool _interacted;
 
-	void OnEnable()
-	{
-		_inputChannel.InteractionPressed += InputChannelOnInteractionPressed;
-	}
-
-	void OnDisable()
-	{
-		_inputChannel.InteractionPressed -= InputChannelOnInteractionPressed;
-	}
-
-	void OnTriggerEnter2D(Collider2D col)
-	{
-		if (col.TryGetComponent(out Interactable interactable))
+		void OnEnable()
 		{
-			_interactable = interactable;
-			interactable.EnableInteraction();
+			_inputChannel.InteractionPressed += InputChannelOnInteractionPressed;
 		}
-	}
 
-	void OnTriggerExit2D(Collider2D col)
-	{
-		if (col.TryGetComponent(out Interactable interactable))
+		void OnDisable()
 		{
-			_interactable = null;
-			interactable.DisableInteraction();
+			_inputChannel.InteractionPressed -= InputChannelOnInteractionPressed;
 		}
-	}
+
+		void OnTriggerEnter2D(Collider2D col)
+		{
+			if (col.TryGetComponent(out Interactable interactable))
+			{
+				_interactable = interactable;
+				interactable.EnableInteraction();
+			}
+		}
+
+		void OnTriggerExit2D(Collider2D col)
+		{
+			if (col.TryGetComponent(out Interactable interactable))
+			{
+				_interactable = null;
+				interactable.DisableInteraction();
+			}
+		}
 	
-	void InputChannelOnInteractionPressed()
-	{
-		if (!_interactable || _interacted)
-			return;
+		void InputChannelOnInteractionPressed()
+		{
+			if (!_interactable || _interacted)
+				return;
 		
-		OnInteractionStarting();
-		_interactable.Interact(this, OnInteractionEnded);
-	}
+			OnInteractionStarting();
+			_interactable.Interact(this, OnInteractionEnded);
+		}
 
-	void OnInteractionStarting()
-	{
-		_mover.SetActiveMovement(false);
-		_interacted = true;
-	}
+		void OnInteractionStarting()
+		{
+			_mover.SetActiveMovement(false);
+			_interacted = true;
+		}
 
-	void OnInteractionEnded()
-	{
-		_mover.SetActiveMovement(true);
-		_interacted = false;
+		void OnInteractionEnded()
+		{
+			_mover.SetActiveMovement(true);
+			_interacted = false;
+		}
 	}
 }

@@ -2,7 +2,7 @@ using System.Runtime.InteropServices;
 using UnityEditor;
 using UnityEngine;
 
-namespace Editor
+namespace BlueGravity.Editor
 {
 	public static class SaveManagerEditor
 	{

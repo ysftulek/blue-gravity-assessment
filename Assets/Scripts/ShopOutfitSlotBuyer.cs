@@ -1,13 +1,14 @@
-using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
-
-public class ShopOutfitSlotBuyer : MonoBehaviour, IPointerDownHandler
+namespace BlueGravity
 {
-	[SerializeField] ShopOutfitSlot _shopOutfitSlot;
-
-	public void OnPointerDown(PointerEventData eventData)
+	public class ShopOutfitSlotBuyer : MonoBehaviour, IPointerDownHandler
 	{
-		_shopOutfitSlot.BuyItem();
+		[SerializeField] ShopOutfitSlot _shopOutfitSlot;
+
+		public void OnPointerDown(PointerEventData eventData)
+		{
+			_shopOutfitSlot.BuyItem();
+		}
 	}
 }

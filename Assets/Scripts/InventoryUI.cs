@@ -1,36 +1,39 @@
+using System.Collections.Generic;
 using UnityEngine;
-
-public class InventoryUI : MonoBehaviour
+namespace BlueGravity
 {
-	[SerializeField] InventorySlot[] _inventorySlots;
-
-	Inventory _inventory;
-	int _index;
-	
-	public void Show(ItemInfo[] item, Inventory inventory)
+	public class InventoryUI : MonoBehaviour
 	{
-		_inventory = inventory;
-		
-		for (int i = 0; i < item.Length; i++)
+		[SerializeField] InventorySlot[] _inventorySlots;
+
+		Inventory _inventory;
+		int _index;
+	
+		public void Show(List<ItemInfo> item, Inventory inventory)
 		{
-			_inventorySlots[i].Initialize(this, item[i]);
-		}
+			_inventory = inventory;
 		
-		gameObject.SetActive(true);
-	}
+			for (int i = 0; i < item.Count; i++)
+			{
+				_inventorySlots[i].Initialize(this, item[i]);
+			}
+		
+			gameObject.SetActive(true);
+		}
 
-	public void Hide()
-	{
-		gameObject.SetActive(false);
-	}
+		public void Hide()
+		{
+			gameObject.SetActive(false);
+		}
 
-	public void SellItem(ItemInfo itemInfo)
-	{
-		_inventory.SellItem(itemInfo);
-	}
+		public void SellItem(ItemInfo itemInfo)
+		{
+			_inventory.SellItem(itemInfo);
+		}
 	
-	void Reset()
-	{
-		_inventorySlots = GetComponentsInChildren<InventorySlot>();
+		void Reset()
+		{
+			_inventorySlots = GetComponentsInChildren<InventorySlot>();
+		}
 	}
 }

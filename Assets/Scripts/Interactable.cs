@@ -1,36 +1,38 @@
 using System;
 using UnityEngine;
-
-public class Interactable : MonoBehaviour
+namespace BlueGravity
 {
-	[SerializeField] HintPanel _hintPanel;
-	[SerializeField] bool _interactOnce;
-
-	IInteractable _interactable;
-
-	void Awake()
+	public class Interactable : MonoBehaviour
 	{
-		_interactable = GetComponent<IInteractable>();
-	}
+		[SerializeField] HintPanel _hintPanel;
+		[SerializeField] bool _interactOnce;
 
-	public void EnableInteraction()
-	{
-		_hintPanel.Show();
-	}
+		IInteractable _interactable;
 
-	public void DisableInteraction()
-	{
-		_hintPanel.Hide();
-	}
-
-	public void Interact(Interactor interactor, Action onInteractionEnded)
-	{
-		_interactable.Interact(interactor, onInteractionEnded);
-
-		if (_interactOnce)
+		void Awake()
 		{
-			DisableInteraction();
-			Destroy(this);
+			_interactable = GetComponent<IInteractable>();
+		}
+
+		public void EnableInteraction()
+		{
+			_hintPanel.Show();
+		}
+
+		public void DisableInteraction()
+		{
+			_hintPanel.Hide();
+		}
+
+		public void Interact(Interactor interactor, Action onInteractionEnded)
+		{
+			_interactable.Interact(interactor, onInteractionEnded);
+
+			if (_interactOnce)
+			{
+				DisableInteraction();
+				Destroy(this);
+			}
 		}
 	}
 }

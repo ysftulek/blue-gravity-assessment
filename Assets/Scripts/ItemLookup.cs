@@ -1,37 +1,45 @@
-using System;
 using System.Collections.Generic;
+using BlueGravity.Save_System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Item Lookup", menuName = "Item Lookup", order = 0)]
-public class ItemLookup : ScriptableObject
+namespace BlueGravity
 {
-	[SerializeField] OutfitList[] _outfitLists;
-
-	public Dictionary<SaveableRuntimeIntVariable, SpritePricePair> Lookup;
-
-	void OnEnable()
+	[CreateAssetMenu(fileName = "Item Lookup", menuName = "Item Lookup", order = 0)]
+	public class ItemLookup : ScriptableObject
 	{
-		Lookup = new Dictionary<SaveableRuntimeIntVariable, SpritePricePair>();
+		[SerializeField] OutfitList[] _outfitLists;
 
-		foreach (OutfitList itemInfo in _outfitLists)
+		public Dictionary<SaveableRuntimeIntVariable, SpritePricePair> Lookup;
+
+		void OnEnable()
 		{
-			foreach (ItemInfo outfit in itemInfo.Outfits)
+			Lookup = new Dictionary<SaveableRuntimeIntVariable, SpritePricePair>();
+
+			foreach (OutfitList itemInfo in _outfitLists)
 			{
-				Lookup.Add(outfit.Item, outfit.SpritePricePair);
+				foreach (ItemInfo outfit in itemInfo.Outfits)
+				{
+					Lookup.Add(outfit.Item, outfit.SpritePricePair);
+				}
 			}
 		}
-	}
 
-	public ItemInfo[] GetItemInfos(List<SaveableRuntimeIntVariable> items)
-	{
-		ItemInfo[] infos = new ItemInfo[items.Count];
-		for (int i = 0; i < items.Count; i++)
+		public List<ItemInfo> GetAllOwnedItems()
 		{
-			SaveableRuntimeIntVariable saveableRuntimeIntVariable = items[i];
-			infos[i].Item = saveableRuntimeIntVariable;
-			infos[i].SpritePricePair = Lookup[saveableRuntimeIntVariable];
-		}
+			List<ItemInfo> infos = new List<ItemInfo>();
 
-		return infos;
+			foreach (OutfitList outfitList in _outfitLists)
+			{
+				foreach (ItemInfo outfits in outfitList.Outfits)
+				{
+					if (outfits.Item.RuntimeValue == 1)
+					{
+						infos.Add(outfits);
+					}
+				}
+			}
+
+			return infos;
+		}
 	}
 }

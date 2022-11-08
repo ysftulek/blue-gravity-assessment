@@ -1,8 +1,11 @@
 using System;
 using UnityEngine;
-[Serializable]
-public struct SpritePricePair
+namespace BlueGravity
 {
-	public Sprite Sprite;
-	public int Price;
+	[Serializable]
+	public struct SpritePricePair
+	{
+		public Sprite Sprite;
+		public int Price;
+	}
 }

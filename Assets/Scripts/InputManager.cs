@@ -1,33 +1,34 @@
-using System;
 using UnityEngine;
-
-public class InputManager : MonoBehaviour
+namespace BlueGravity
 {
-	[SerializeField] InputChannel _inputChannel;
-	[SerializeField] KeyCode _interactionKey;
-	[SerializeField] KeyCode _inventoryKey;
-
-	void Update()
+	public class InputManager : MonoBehaviour
 	{
-		if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
-		{
-			Vector2 moveVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-			_inputChannel.InvokeMoving(moveVector);
-		}
-		
-		if (Input.GetButtonUp("Horizontal") || Input.GetButtonUp("Vertical"))
-		{
-			_inputChannel.InvokeMovingFinished();
-		}
+		[SerializeField] InputChannel _inputChannel;
+		[SerializeField] KeyCode _interactionKey;
+		[SerializeField] KeyCode _inventoryKey;
 
-		if (Input.GetKeyDown(_interactionKey))
+		void Update()
 		{
-			_inputChannel.InvokeInteraction();
-		}
+			if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
+			{
+				Vector2 moveVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+				_inputChannel.InvokeMoving(moveVector);
+			}
 		
-		if (Input.GetKeyDown(_inventoryKey))
-		{
-			_inputChannel.InvokeTogglingInventory();
+			if (Input.GetButtonUp("Horizontal") || Input.GetButtonUp("Vertical"))
+			{
+				_inputChannel.InvokeMovingFinished();
+			}
+
+			if (Input.GetKeyDown(_interactionKey))
+			{
+				_inputChannel.InvokeInteraction();
+			}
+		
+			if (Input.GetKeyDown(_inventoryKey))
+			{
+				_inputChannel.InvokeTogglingInventory();
+			}
 		}
 	}
 }

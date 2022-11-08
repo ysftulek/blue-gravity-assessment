@@ -1,5 +1,8 @@
 using System;
-public interface IInteractable
+namespace BlueGravity
 {
-	void Interact(Interactor interactor, Action interactionEndedCallback);
+	public interface IInteractable
+	{
+		void Interact(Interactor interactor, Action interactionEndedCallback);
+	}
 }
