@@ -44,11 +44,11 @@ TagManager:
   - name: Layer 1
     uniqueID: 3752378467
     locked: 0
-  - name: Layer 2
-    uniqueID: 3647172381
-    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Layer 2
+    uniqueID: 3647172381
     locked: 0
   - name: World UI
     uniqueID: 2625936107
